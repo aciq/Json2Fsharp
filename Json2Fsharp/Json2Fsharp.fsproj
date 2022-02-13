@@ -6,10 +6,12 @@
         <PackAsTool>true</PackAsTool>
         <ToolCommandName>json2fsharp</ToolCommandName>
         <PackageOutputPath>./nupkg</PackageOutputPath>
-        <RepositoryType>GitHub</RepositoryType>
         <PackageProjectUrl>https://github.com/nr-4/Json2Fsharp</PackageProjectUrl>
         <PackageId>json2fsharp</PackageId>
-        <license>License.txt</license>
+        <PackageLicense>https://raw.githubusercontent.com/nr-4/Json2Fsharp/master/License.txt</PackageLicense>
+        <License>https://raw.githubusercontent.com/nr-4/Json2Fsharp/master/License.txt</License>
+        <Version>1.0.0</Version>
+        <Authors>nr-4</Authors>
         <Title>Json2Fsharp</Title>
         <Description>Json to F# Code Generator</Description>
     </PropertyGroup>
