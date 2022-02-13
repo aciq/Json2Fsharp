@@ -4,7 +4,7 @@ F# implementation of [Json2CSharpCodeGenerator](https://github.com/Json2CSharp/J
 
 example usage (more options with --help):
 
-`dotnet tool install --global json2fsharp`
+`dotnet tool install --global --add-source ./json2fsharp/nupkg json2fsharp`
 
 `json2fsharp .\samples\sample.json .\samples\output.fs -n MyNamespace.Generated`
 
