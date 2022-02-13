@@ -196,7 +196,6 @@ type FSharpCodeWriter() =
         if (``type``.Fields.Count = 0) then
             sw.AppendFormat(indentMembers + "public {0}() {{}}{1}", ``type``.AssignedName, Environment.NewLine)
             |> ignore
-
             ()
 
         // Constructor signature:
@@ -233,13 +232,14 @@ type FSharpCodeWriter() =
 
                 sw.Append(' ') |> ignore
 
-
-            // e.g. `String foobar,\r\n`
             sw.AppendFormat("{0} {1}{2}{3}", field.Type.GetTypeName(), ctorParameterName, comma, Environment.NewLine)
             |> ignore
+            
+            
 
 
     interface ICodeBuilder with
+    
         member this.DisplayName = "F#"
         member this.FileExtension = ".fs"
 
@@ -251,11 +251,9 @@ type FSharpCodeWriter() =
                     ((this :> ICodeBuilder)
                         .GetTypeName(``type``.InternalType, config))
                     config.CollectionType
+                
             | JsonTypeEnum.Dictionary ->
-                "Dictionary<string, "
-                + ((this :> ICodeBuilder)
-                    .GetTypeName(``type``.InternalType, config)
-                   + ">")
+                $"Dictionary<string, {(this :> ICodeBuilder).GetTypeName(``type``.InternalType, config)}>"
             | JsonTypeEnum.Boolean -> "bool"
             | JsonTypeEnum.Float -> "double"
             | JsonTypeEnum.Integer -> "int"
@@ -401,7 +399,6 @@ type FSharpCodeWriter() =
                         failwith MSG_FMT
                 else if (config.OutputType = OutputTypes.ImmutableClass) then
                     if (field.Type.Type = JsonTypeEnum.Array) then
-                        // TODO: Respect config.CollectionType
                         sw.AppendFormat(
                             indentMembers
                             + "public IReadOnlyList<{0}> {1} {{ get; }}{2}",
