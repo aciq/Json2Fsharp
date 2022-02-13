@@ -327,8 +327,11 @@ type FSharpCodeWriter() =
                 let propertyAttribute = config.GetCSharpJsonAttributeCode(field)
 
                 if config.ExamplesInDocumentation then
+                    let exampleText =
+                        field.GetExamplesText()
+                        |> (fun f -> f.Substring(min f.Length 100)) // max 100 chars
                     sw
-                    |> appendLine $"{indentMembers}/// e.g. {field.GetExamplesText()}"
+                    |> appendLine $"{indentMembers}/// e.g. {exampleText}"
                     |> ignore
 
                 if (propertyAttribute.Length > 0) then
