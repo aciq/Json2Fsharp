@@ -10,15 +10,17 @@
         <PackageId>json2fsharp</PackageId>
         <PackageLicense>https://raw.githubusercontent.com/nr-4/Json2Fsharp/master/License.txt</PackageLicense>
         <License>https://raw.githubusercontent.com/nr-4/Json2Fsharp/master/License.txt</License>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
         <Authors>nr-4</Authors>
         <Title>Json2Fsharp</Title>
         <Description>Json to F# Code Generator</Description>
+        <PackageReadmeFile>readme.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
         <Compile Include="FSharpCodeWriter.fs" />
         <Compile Include="Program.fs" />
+        <None Include="docs/readme.md" Pack="true" PackagePath="\"/>
     </ItemGroup>
 
     <ItemGroup>

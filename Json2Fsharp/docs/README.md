@@ -8,6 +8,3 @@ example usage (more options with --help):
 
 `json2fsharp .\samples\sample.json .\samples\output.fs -n MyNamespace.Generated`
 
-example output:
-
-![](_resources/02-17-25.png)

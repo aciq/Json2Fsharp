@@ -1,4 +1,4 @@
-﻿namespace Json2Fs
+﻿namespace Json2Fsharp
 
 open System
 open System.Collections.Generic
@@ -290,7 +290,7 @@ type FSharpCodeWriter() =
             if config.OutputType = OutputTypes.MutableClass then
                 sw
                 |> appendLine $"{indentTypes}[<CLIMutable>]"
-                |> appendLine (indentTypes + $"type{visibility} {className} = {{")
+                |> appendLine $"{indentTypes}type{visibility} {className} = {{"
                 |> (fun sb ->
                     (this :> ICodeBuilder)
                         .WriteClassMembers(config, sw, ``type``, indentMembers)

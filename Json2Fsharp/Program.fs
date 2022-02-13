@@ -3,7 +3,7 @@
 open System
 open System.IO
 open CommandLine
-open Json2Fs
+open Json2Fsharp
 open Xamasoft.JsonClassGenerator
 
 [<Verb(name="gen",isDefault=true)>]
