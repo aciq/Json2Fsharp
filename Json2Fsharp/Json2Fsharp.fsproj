@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <PackAsTool>true</PackAsTool>
+        <ToolCommandName>json2fsharp</ToolCommandName>
+        <PackageOutputPath>./nupkg</PackageOutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="FSharpCodeWriter.fs" />
+        <Compile Include="Program.fs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Json2CSharpCodeGenerator\JsonClassGeneratorLib\JsonClassGeneratorLib.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="CommandLineParser.FSharp" Version="2.8.0" />
+      <PackageReference Include="System.Security.Permissions" Version="6.0.0" />
+    </ItemGroup>
+
+</Project>

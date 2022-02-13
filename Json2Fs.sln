@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Json2Fsharp", "Json2Fsharp\Json2Fsharp.fsproj", "{3C48EBFC-84E3-4FB2-8DE7-3F53400530A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonClassGeneratorLib", "Json2CSharpCodeGenerator\JsonClassGeneratorLib\JsonClassGeneratorLib.csproj", "{CC0CC10E-B4C3-4703-A331-E63FF20D20A1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3C48EBFC-84E3-4FB2-8DE7-3F53400530A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C48EBFC-84E3-4FB2-8DE7-3F53400530A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C48EBFC-84E3-4FB2-8DE7-3F53400530A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C48EBFC-84E3-4FB2-8DE7-3F53400530A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC0CC10E-B4C3-4703-A331-E63FF20D20A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC0CC10E-B4C3-4703-A331-E63FF20D20A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC0CC10E-B4C3-4703-A331-E63FF20D20A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC0CC10E-B4C3-4703-A331-E63FF20D20A1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
