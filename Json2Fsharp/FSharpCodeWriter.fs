@@ -49,12 +49,8 @@ type FSharpCodeWriter() =
 
 
     let getTypeIndent (config: IJsonClassGeneratorConfig) (typeIsRoot: bool) =
-        if (typeIsRoot) then
-            "" // nothing
-        else
-            "" //
-
-
+        ""
+//        if (typeIsRoot) then ""  else "" //
 
     member this.ShouldApplyNoPruneAttribute(config: IJsonClassGeneratorConfig) : bool =
         config.ApplyObfuscationAttributes

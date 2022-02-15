@@ -8,10 +8,10 @@ open Xamasoft.JsonClassGenerator
 
 [<Verb(name="gen",isDefault=true)>]
 type Options = {
-  [<Option('e', "noexamples", HelpText = "Dont write examples in documentation (e.g. \"2021-01-13 15:19:15\")")>] ``noexamples`` : bool;
-  [<Option('n', "ns", Default="MyNamespace", HelpText = "Namespace")>] ``namespace`` : string;
-  [<Value(0, MetaName="input",Required=true, HelpText = "Input file path")>] input : string;
-  [<Value(1, MetaName="output",Required=true, HelpText = "Output file path")>] output : string;
+  [<Option('x', "noexamples", HelpText = "Dont write examples in xml tags")>] ``noexamples`` : bool;
+  [<Option('n', "namespace", Default="MyNamespace", HelpText = "Namespace")>] ``namespace`` : string;
+  [<Value(0, MetaName="input",Required=true, HelpText = "Input file path (e.g. file.json)")>] input : string;
+  [<Value(1, MetaName="output",Required=true, HelpText = "Output file path (e.g. types.fs)")>] output : string;
 }
 
 
