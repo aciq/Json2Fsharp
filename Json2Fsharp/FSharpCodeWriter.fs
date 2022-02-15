@@ -38,83 +38,12 @@ type FSharpCodeWriter() =
 
     let _reservedKeywords =
         seq {
-            "abstract"
-            "as"
-            "base"
-            "bool"
-            "break"
-            "byte"
-            "case"
-            "catch"
-            "char"
-            "checked"
-            "class"
-            "const"
-            "continue"
-            "decimal"
-            "default"
-            "delegate"
-            "do"
-            "double"
-            "else"
-            "enum"
-            "event"
-            "explicit"
-            "extern"
-            "false"
-            "finally"
-            "fixed"
-            "float"
-            "for"
-            "foreach"
-            "goto"
-            "if"
-            "implicit"
-            "in"
-            "int"
-            "interface"
-            "internal"
-            "is"
-            "lock"
-            "long"
-            "namespace"
-            "new"
-            "null"
-            "object"
-            "operator"
-            "out"
-            "override"
-            "params"
-            "private"
-            "protected"
-            "public"
-            "readonly"
-            "ref"
-            "return"
-            "sbyte"
-            "sealed"
-            "short"
-            "sizeof"
-            "stackalloc"
-            "static"
-            "string"
-            "struct"
-            "switch"
-            "this"
-            "throw"
-            "true"
-            "try"
-            "typeof"
-            "uint"
-            "ulong"
-            "unchecked"
-            "unsafe"
-            "ushort"
-            "using"
-            "virtual"
-            "void"
-            "volatile"
-            "while"
+            "new"; "use"; "end"; "lsl"; "exception"; "asr"; "if"; "internal"; "default"; "in"; "lsr"; "open"; "static"; "assert"; "match"; "land"; "with"; "inherit"; "mutable"
+            "downto"; "false"; "sig"; "and"; "true"; "namespace"; "public"; "lxor"; "val"; "void"; "downcast"; "function"; "while"; "for"; "class"; "done"; "to"; "module";
+            "let"; "delegate"; "abstract"; "then"; "when"; "lazy"; "try"; "inline"; "do"; "upcast"; "begin"; "base"; "fun"; "struct"; "as"; "extern"; "null"; "lor"; "return";
+            "mod"; "private"; "of"; "or"; "member"; "type"; "rec"; "elif"; "override"; "interface"; "yield"; "else"; "finally"; "global"; "select"; "use!"; "const"; "asr"; "land";
+            "lor"; "lsl"; "lsr"; "lxor"; "mod"; "sig"; "break"; "checked"; "component"; "const"; "constraint"; "continue"; "event"; "external"; "include"; "mixin"; "parallel"; "process";
+            "protected"; "pure"; "sealed"; "tailcall"; "trait"; "virtual";
         }
         |> HashSet<string>
 
@@ -168,7 +97,7 @@ type FSharpCodeWriter() =
             if (not (Char.IsLetter(name[0]))) then
                 name <- "_" + name
             else if ((this :> ICodeBuilder).IsReservedKeyword(name)) then
-                name <- "@" + name
+                name <- $"``{name}``" 
 
             name
 
@@ -473,6 +402,8 @@ type FSharpCodeWriter() =
 
                 for ns in importNamespaces do
                     sw |> appendLine $"open {ns}" |> ignore
+                    
+                
                     
                 sw |> appendLine "" |> ignore
                 
