@@ -101,7 +101,7 @@ type FSharpCodeWriter() =
         let mutable name = inputname
 
         if (this :> ICodeBuilder).IsReservedKeyword name then
-            name <- "@" + name
+            name <- $"``{name}``" 
         // Check if property name starts with number
         if (not (String.IsNullOrEmpty(name))
             && Char.IsDigit(name[0])) then
@@ -252,7 +252,7 @@ type FSharpCodeWriter() =
                 if config.ExamplesInDocumentation then
                     let exampleText =
                         field.GetExamplesText()
-                        |> (fun f -> f.Substring(min f.Length 100)) // max 100 chars
+                        |> (fun f -> f.Substring(0,min f.Length 100)) // max 100 chars
                     sw
                     |> appendLine $"{indentMembers}/// e.g. {exampleText}"
                     |> ignore

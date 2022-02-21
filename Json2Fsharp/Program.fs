@@ -19,7 +19,13 @@ type Options = {
 let main argv =
     
     let parser = new Parser(fun f -> f.HelpWriter <- Console.Out )
-    let result = parser.ParseArguments<Options>(argv)
+    
+    let testargv =
+        [|
+            @"C:\Users\kast\source\myrepos\Json2Fs\Json2Fsharp\samples\sample2.json"
+            @"C:\Users\kast\source\myrepos\Json2Fs\Json2Fsharp\samples\out2.fs"
+        |]
+    let result = parser.ParseArguments<Options>(testargv)
         
     match result with
     | :? CommandLine.Parsed<Options> as command ->
