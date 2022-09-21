@@ -3,16 +3,16 @@
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>net6.0</TargetFramework>
-        <RepositoryUrl>https://github.com/nr-4/Json2Fsharp</RepositoryUrl>
+        <RepositoryUrl>https://github.com/aciq/Json2Fsharp</RepositoryUrl>
         <PackAsTool>true</PackAsTool>
         <ToolCommandName>json2fsharp</ToolCommandName>
         <PackageOutputPath>./nupkg</PackageOutputPath>
-        <PackageProjectUrl>https://github.com/nr-4/Json2Fsharp</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/aciq/Json2Fsharp</PackageProjectUrl>
         <PackageId>json2fsharp</PackageId>
-        <PackageLicense>https://raw.githubusercontent.com/nr-4/Json2Fsharp/master/License.txt</PackageLicense>
-        <License>https://raw.githubusercontent.com/nr-4/Json2Fsharp/master/License.txt</License>
-        <Version>1.0.6</Version>
-        <Authors>nr-4</Authors>
+        <PackageLicense>https://raw.githubusercontent.com/aciq/Json2Fsharp/master/License.txt</PackageLicense>
+        <License>https://raw.githubusercontent.com/aciq/Json2Fsharp/master/License.txt</License>
+        <Version>1.0.7</Version>
+        <Authors>aciq</Authors>
         <Title>Json2Fsharp</Title>
         <Description>Json to F# Code Generator</Description>
         <PackageReadmeFile>readme.md</PackageReadmeFile>

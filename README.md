@@ -6,7 +6,7 @@ example usage (more options with --help):
 
 `dotnet tool install --global json2fsharp`
 
-`json2fsharp .\samples\sample.json .\samples\output.fs -n MyNamespace.Generated`
+`json2fsharp ./Json2Fsharp/samples/sample.json > output.fsx`
 
 example output:
 
