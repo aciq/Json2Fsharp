@@ -241,7 +241,7 @@ type FSharpCodeWriter() =
                 sw.AppendLine() |> ignore
 
 
-
+        
         member this.WriteClassMembers(config, sw, ``type``: JsonType, indentMembers) =
             let mutable first = true
 
@@ -359,8 +359,10 @@ type FSharpCodeWriter() =
             if (config.OutputType = OutputTypes.ImmutableRecord) then
                 sw.AppendLine() |> ignore
 
-        member this.WriteDeserializationComment(config, sw) = ()
-        member this.WriteFileEnd(config, sw) = ()
+        member this.WriteDeserializationComment(config, sw, rootIsArray) = ()
+        member this.WriteFileEnd(config, sw) =
+//            sw |> appendLine "//TODO : example"
+            ()
 
         member this.WriteFileStart(config, sw) =
             if config.UseNestedClasses then
