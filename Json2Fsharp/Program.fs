@@ -23,44 +23,48 @@ type Options =
     }
 
 
-
-
     
 [<EntryPoint>]
 let main argv =
-    Debug.run()
+    // Debug.run()
     let parser =
         new Parser(fun f -> f.HelpWriter <- Console.Out)
     
-    if true then 0 else
-    
 #if DEBUG    
     // debugging
-    let argv =
-        [| __SOURCE_DIRECTORY__ + "/samples/sample2.json" |]
+    // let argv = [| __SOURCE_DIRECTORY__ + "/samples/sample2.json" |]
 #endif    
+    // stdout.WriteLine $"reading {argv[0]}"
+    let input = argv[0] |> File.ReadAllText
+    let rootNode = JsType.getRootNode input
     
-    let result = parser.ParseArguments<Options>(argv)
+    let jsTypes =
+        JsType.collectRecords rootNode
+        |> List.distinctBy (fun f -> f.Name,f.Props)
+    
+    let typeDict =
+        jsTypes
+        |> List.map (fun f -> f.Name.Value,  f.Props |> List.map (fun f -> f.Name, SType.ofInferedType f.Type)) 
+        |> dict
+    
+    let fsTypes =
+        jsTypes
+        |> List.map (fun f -> (convertType typeDict f.InferedType) )
+             
+    
+    let ns2 = Fa.Namespace.ofTypes "NsName" fsTypes
+    
+    let implFile2 = Fa.ImplFile.Create [ ns2 ]
 
-    match result with
-    | :? CommandLine.Parsed<Options> as command ->
-        let value = command.Value
-        let path = value.input
-//        let outputPath = value.output
-        let input = File.ReadAllText(path)
+    let outputCode2 = 
+        Fa.ImplFile.ToFormattedStringAsync implFile2
+        |> Async.RunSynchronously
         
-        let result = Generator.generateFSharp input
-                
-        let t12 = 1
-
-        ()
-//        match generator.GenerateClasses(input) with
-//        | _, error when error <> "" -> failwith error
-//        | generatedFile, _ ->
-//            generatedFile |> string |> stdout.Write 
-
-
+    stdout.Write(outputCode2)
+    
+    match parser.ParseArguments<Options>(argv) with
+    | :? CommandLine.Parsed<Options> as command -> ()
     | :? CommandLine.NotParsed<Options> as notparsed -> ()
-    | _ -> failwithf $"unknown command: %A{result}"
+    | n -> failwithf $"unknown command: %A{n}"
 
     0

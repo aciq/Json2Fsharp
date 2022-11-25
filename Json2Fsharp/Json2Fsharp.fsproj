@@ -1,57 +1,51 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-    <PropertyGroup>
-        <OutputType>Exe</OutputType>
-        <TargetFramework>net7.0</TargetFramework>
-        <RepositoryUrl>https://github.com/aciq/Json2Fsharp</RepositoryUrl>
-        <PackAsTool>true</PackAsTool>
-        <ToolCommandName>json2fsharp</ToolCommandName>
-        <PackageOutputPath>./nupkg</PackageOutputPath>
-        <PackageProjectUrl>https://github.com/aciq/Json2Fsharp</PackageProjectUrl>
-        <PackageId>json2fsharp</PackageId>
-        <PackageLicense>https://raw.githubusercontent.com/aciq/Json2Fsharp/master/License.txt</PackageLicense>
-        <License>https://raw.githubusercontent.com/aciq/Json2Fsharp/master/License.txt</License>
-        <Version>1.0.11</Version>
-        <Authors>aciq</Authors>
-        <Title>Json2Fsharp</Title>
-        <PackageOutputPath>../nupkg</PackageOutputPath>
-        <Description>Json to F# Code Generator</Description>
-        <PackageReadmeFile>readme.md</PackageReadmeFile>
-
-
-    </PropertyGroup>
-
-    <ItemGroup>
-        <Compile Include="Fantomas.fs" />
-        <Compile Include="Helpers.fs" />
-        <Compile Include="Inference.fs" />
-        <Compile Include="Common.fs" />
-        <Compile Include="Generator.fs" />
-        <Compile Include="FSharpCodeWriter.fs" />
-        <Compile Include="Debug.fs" />
-        <Compile Include="Program.fs" />
-        <None Include="test.fsx" />
-        <None Include="testast.fsx" />
-        <None Include="gentest.fsx" />
-        <None Include="docs/readme.md" Pack="true" PackagePath="\" />
-        <Content Include="..\README.md">
-            <Link>README.md</Link>
-        </Content>
-    </ItemGroup>
-
-    <ItemGroup>
-        <PackageReference Include="CommandLineParser.FSharp" Version="2.8.0" />
-        <PackageReference Include="FSharp.Data" Version="5.0.2" />
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-        <PackageReference Include="protobuf-net" Version="3.1.22" />
-<!--        <PackageReference Include="Myriad.Core" Version="0.8.1" PrivateAssets="all" />-->
-<!--        <PackageReference Include="Myriad.Sdk" Version="0.8.1" />-->
-        <PackageReference Include="System.Security.Permissions" Version="6.0.0" />
-<!--        <PackageReference Update="FSharp.Core" Version="6.0.6" />-->
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\..\..\myrepos\aciq-fs-codegen\Aciq.FsCodegen\Aciq.FsCodegen.fsproj" />
-    </ItemGroup>
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <RepositoryUrl>https://github.com/aciq/Json2Fsharp</RepositoryUrl>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>json2fsharp</ToolCommandName>
+    <PackageOutputPath>./nupkg</PackageOutputPath>
+    <PackageProjectUrl>https://github.com/aciq/Json2Fsharp</PackageProjectUrl>
+    <PackageId>json2fsharp</PackageId>
+    <PackageLicense>https://raw.githubusercontent.com/aciq/Json2Fsharp/master/License.txt</PackageLicense>
+    <License>https://raw.githubusercontent.com/aciq/Json2Fsharp/master/License.txt</License>
+    <Version>1.0.16</Version>
+    <Authors>aciq</Authors>
+    <Title>Json2Fsharp</Title>
+    <PackageOutputPath>../nupkg</PackageOutputPath>
+    <Description>Json to F# Code Generator</Description>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Fantomas.fs" />
+    <Compile Include="Helpers.fs" />
+    <Compile Include="Inference.fs" />
+    <Compile Include="Common.fs" />
+    <Compile Include="Generator.fs" />
+    <Compile Include="FSharpCodeWriter.fs" />
+    <Compile Include="Debug.fs" />
+    <Compile Include="Program.fs" />
+    <None Include="test.fsx" />
+    <None Include="testast.fsx" />
+    <None Include="gentest.fsx" />
+    <None Include="docs/readme.md" Pack="true" PackagePath="\" />
+    <Content Include="..\README.md">
+      <Link>README.md</Link>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CommandLineParser.FSharp" Version="2.8.0" />
+    <PackageReference Include="FSharp.Data" Version="5.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="protobuf-net" Version="3.1.22" />
+    <!--        <PackageReference Include="Myriad.Core" Version="0.8.1" PrivateAssets="all" />-->
+    <!--        <PackageReference Include="Myriad.Sdk" Version="0.8.1" />-->
+    <PackageReference Include="System.Security.Permissions" Version="6.0.0" />
+    <!--        <PackageReference Update="FSharp.Core" Version="6.0.6" />-->
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\myrepos\aciq-fs-codegen\Aciq.FsCodegen\Aciq.FsCodegen.fsproj" />
+  </ItemGroup>
 </Project>

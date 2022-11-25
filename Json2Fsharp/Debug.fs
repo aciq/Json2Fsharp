@@ -16,61 +16,6 @@ let run() =
     let inputJson = __SOURCE_DIRECTORY__ + "/samples/sample2.json" |> File.ReadAllText
     let rootNode = JsType.getRootNode inputJson
     
-    
-    let loop (typedict:IDictionary<string,_>) (currentRecord:InferedType) =
-        match currentRecord with 
-        | InferedType.Record(name, props, optional) ->
-            let name = name.Value
-            let fields =
-                props
-                |> List.map (fun f ->
-                    let name = f.Name
-                    name,(SType.ofInferedType f.Type)
-                )
-            let mems =
-                Fa.Member.CreateStatic(
-                    "Default",
-                    [],
-                    Some(Fa.RetnInfo.Create(SynType.Create name)),
-                    SynExpr.CreateRecord(
-                        [
-                            let rfs : (RecordFieldName * SynExpr option) list  = 
-                                fields |> List.map (fun (nam,typ) ->
-                                    let v = 1
-                                    RecordFieldName(Ident.createLongSyn [nam], true),
-                                    let idents = SType.idents typ
-                                    match typedict.TryGetValue(idents.Head) with
-                                    | true, props when idents.Length = 1 && optional  ->
-                                        let defaultv = SynExpr.CreateLongIdent(Ident.createLongSyn [nam ; "Default"])
-                                        SynExpr.CreateApp(SynExpr.CreateIdentString("Some"),defaultv) |> Some
-                                    | true, props when idents.Length = 1 ->
-                                        SynExpr.CreateLongIdent(Ident.createLongSyn [nam ; "Default"]) |> Some  
-                                    | _ -> (Fa.Defaults.typeValueDict typedict typ) |> Some
-                                )
-                            yield! rfs
-                        ]    
-                    ) 
-                )
-                |> List.singleton
-                
-            let fsfields = fields |> List.map (fun (nam,typ) ->
-                let idents = SType.idents typ
-                match typedict.TryGetValue(idents.Head) with
-                | true, props when idents.Length = 1 ->
-                    if optional then
-                        Fa.Field.Create nam (SynType.Option(typ,true))
-                    else
-                        Fa.Field.Create nam typ
-                | _ -> 
-                    Fa.Field.Create nam typ
-            )
-            SynTypeDefn.CreateRecord( Ident.create name, fields = fsfields, members = mems  )
-            
-          
-        | _ -> failwith $"invalid type {rootNode}" 
-
-    
-    
     let jsTypes =
         JsType.collectRecords rootNode
         |> List.distinctBy (fun f -> f.Name,f.Props)
@@ -82,7 +27,7 @@ let run() =
     
     let fsTypes =
         jsTypes
-        |> List.map (fun f -> (loop typeDict f.InferedType) )
+        |> List.map (fun f -> (convertType typeDict f.InferedType) )
                 
     
     let jts = 1

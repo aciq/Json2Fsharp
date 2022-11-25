@@ -73,3 +73,4 @@ let rec internal inferType unitsOfMeasureProvider inferenceMode cultureInfo pare
                   { Name = propName; Type = t } ]
 
         InferedType.Record(name, props, false)
+    

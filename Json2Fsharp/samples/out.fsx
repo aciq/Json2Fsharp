@@ -15,7 +15,6 @@ type entity =
 type locale =
     { code: string
       name: string }
-
     static member Default: locale = { code = ""; name = "" }
 
 type category =
