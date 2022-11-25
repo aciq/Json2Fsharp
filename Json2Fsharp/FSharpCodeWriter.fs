@@ -38,16 +38,7 @@
 //        | OutputCollectionType.ImmutableArray -> "ImmutableArray<" + elementTypeName + ">"
 //        | _ -> failwithf $"unknown type: %A{outType}"
 //
-//    let _reservedKeywords =
-//        seq {
-//            "new"; "use"; "end"; "lsl"; "exception"; "asr"; "if"; "internal"; "default"; "in"; "lsr"; "open"; "static"; "assert"; "match"; "land"; "with"; "inherit"; "mutable"
-//            "downto"; "false"; "sig"; "and"; "true"; "namespace"; "public"; "lxor"; "val"; "void"; "downcast"; "function"; "while"; "for"; "class"; "done"; "to"; "module";
-//            "let"; "delegate"; "abstract"; "then"; "when"; "lazy"; "try"; "inline"; "do"; "upcast"; "begin"; "base"; "fun"; "struct"; "as"; "extern"; "null"; "lor"; "return";
-//            "mod"; "private"; "of"; "or"; "member"; "type"; "rec"; "elif"; "override"; "interface"; "yield"; "else"; "finally"; "global"; "select"; "use!"; "const"; "asr"; "land";
-//            "lor"; "lsl"; "lsr"; "lxor"; "mod"; "sig"; "break"; "checked"; "component"; "const"; "constraint"; "continue"; "event"; "external"; "include"; "mixin"; "parallel"; "process";
-//            "protected"; "pure"; "sealed"; "tailcall"; "trait"; "virtual";
-//        }
-//        |> HashSet<string>
+
 //
 //
 //    let getTypeIndent (config: IJsonClassGeneratorConfig) (typeIsRoot: bool) =

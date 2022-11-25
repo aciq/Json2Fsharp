@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Json2Fsharp", "Json2Fsharp\Json2Fsharp.fsproj", "{3C48EBFC-84E3-4FB2-8DE7-3F53400530A3}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Aciq.CodeGeneration", "..\..\myrepos\CodeGeneration\Aciq.CodeGeneration\Aciq.CodeGeneration.fsproj", "{3ED4680D-E0FB-40A6-AC6D-32756CF73035}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Aciq.FsCodegen", "..\..\myrepos\aciq-fs-codegen\Aciq.FsCodegen\Aciq.FsCodegen.fsproj", "{4BE6B854-4FE8-4BEE-9BCD-D25762278AFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +18,9 @@ Global
 		{3ED4680D-E0FB-40A6-AC6D-32756CF73035}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3ED4680D-E0FB-40A6-AC6D-32756CF73035}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3ED4680D-E0FB-40A6-AC6D-32756CF73035}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BE6B854-4FE8-4BEE-9BCD-D25762278AFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BE6B854-4FE8-4BEE-9BCD-D25762278AFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BE6B854-4FE8-4BEE-9BCD-D25762278AFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BE6B854-4FE8-4BEE-9BCD-D25762278AFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

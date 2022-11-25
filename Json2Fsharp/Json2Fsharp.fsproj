@@ -11,9 +11,10 @@
         <PackageId>json2fsharp</PackageId>
         <PackageLicense>https://raw.githubusercontent.com/aciq/Json2Fsharp/master/License.txt</PackageLicense>
         <License>https://raw.githubusercontent.com/aciq/Json2Fsharp/master/License.txt</License>
-        <Version>1.0.10</Version>
+        <Version>1.0.11</Version>
         <Authors>aciq</Authors>
         <Title>Json2Fsharp</Title>
+        <PackageOutputPath>../nupkg</PackageOutputPath>
         <Description>Json to F# Code Generator</Description>
         <PackageReadmeFile>readme.md</PackageReadmeFile>
 
@@ -22,12 +23,12 @@
 
     <ItemGroup>
         <Compile Include="Fantomas.fs" />
-        <Compile Include="Fa.fs" />
         <Compile Include="Helpers.fs" />
         <Compile Include="Inference.fs" />
-        <Compile Include="AST.fs" />
+        <Compile Include="Common.fs" />
         <Compile Include="Generator.fs" />
         <Compile Include="FSharpCodeWriter.fs" />
+        <Compile Include="Debug.fs" />
         <Compile Include="Program.fs" />
         <None Include="test.fsx" />
         <None Include="testast.fsx" />
@@ -40,7 +41,6 @@
 
     <ItemGroup>
         <PackageReference Include="CommandLineParser.FSharp" Version="2.8.0" />
-        <PackageReference Include="Fantomas.Core" Version="5.0.6" />
         <PackageReference Include="FSharp.Data" Version="5.0.2" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
         <PackageReference Include="protobuf-net" Version="3.1.22" />
@@ -51,7 +51,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\myrepos\CodeGeneration\Aciq.CodeGeneration\Aciq.CodeGeneration.fsproj" />
+      <ProjectReference Include="..\..\..\myrepos\aciq-fs-codegen\Aciq.FsCodegen\Aciq.FsCodegen.fsproj" />
     </ItemGroup>
 
 </Project>

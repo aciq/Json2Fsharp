@@ -1,7 +1,7 @@
 open System
 open System.Globalization
 open System.IO
-open Aciq.CodeGeneration.Modules
+open Aciq.FsCodegen.Modules
 open CommandLine
 open FSharp.Compiler.Syntax
 open FSharp.Data
@@ -9,6 +9,8 @@ open FSharp.Data.Runtime.StructuralInference
 open FSharp.Data.Runtime.StructuralTypes
 open Json2Fsharp
 open Json2Fsharp.Generator
+open Aciq.FsCodegen
+open Aciq.FsCodegen
 
 [<Verb(name = "gen", isDefault = true)>]
 type Options =
@@ -22,69 +24,15 @@ type Options =
 
 
 
-open Aciq.CodeGeneration
-let debugTest() =
-    let inputJson = __SOURCE_DIRECTORY__ + "/samples/sample.json" |> File.ReadAllText
-    let rootNode = JsType.getRootNode inputJson
-    
-    let rootRecord = 
-        match rootNode with 
-        | InferedType.Record(name, props, optional) -> 
-            {|
-                Name = name
-                Props = props
-                Optional = optional
-            |}
-        | n -> 
-            failwith $"fail {n}"
-    
-    let prop2 = rootRecord.Props[1]
-            
-    let synTypeOfInferedType (it:InferedType) =
-        match it with
-        | InferedType.Primitive(``type``, typeOption, optional, shouldOverrideOnMerge) ->
-            if ``type`` = typeof<string> then SynType.String()
-            elif ``type`` = typeof<int> then SynType.Int()
-            else failwith $"invalid type {``type``}" 
-        | t -> failwith $"invalid type {t}"              
-    
-    let loop (currentRecord:InferedType) =
-        match currentRecord with 
-        | InferedType.Record(name, props, optional) ->
-            let name = name.Value
-            let fields =
-                props
-                |> List.map (fun f ->
-                    Fa.Field.Create f.Name (synTypeOfInferedType f.Type)
-                )
-            SynTypeDefn.CreateRecord( Ident.create name, fields = fields )
-          
-        | _ -> failwith $"invalid type {rootNode}" 
-        
-    
-//    let fields = SynField.Create(SynType.String(), Ident.create "Typename")
-//    let typedecl1 = SynTypeDefn.CreateRecord( Ident.create "RecordName", fields = [fields] )
-    
-    let newrecord = loop prop2.Type
-    let ns2 = Fa.Namespace.ofTypes "NsName" [newrecord]
-    
-    
-    
-    let implFile2 = Fa.ImplFile.Create [ ns2 ]
 
-    let outputCode2 = 
-        Fa.ImplFile.ToFormattedStringAsync implFile2
-        |> Async.RunSynchronously
-    
-    let rdy = 1    
-    ()
-    
     
 [<EntryPoint>]
 let main argv =
-    debugTest()
+    Debug.run()
     let parser =
         new Parser(fun f -> f.HelpWriter <- Console.Out)
+    
+    if true then 0 else
     
 #if DEBUG    
     // debugging
